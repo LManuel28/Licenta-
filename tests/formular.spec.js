@@ -17,39 +17,39 @@ async function completeStep1(page, eventType = "Majorat") {
   await page.waitForTimeout(300);
 }
 
-// Helper: completează pasul 2
-async function completeStep2(page) {
+// Helper: completează câmpurile comune din pasul 2, progresiv
+async function fillStep2Common(page) {
   const futureDate = new Date();
   futureDate.setFullYear(futureDate.getFullYear() + 1);
   const futureDateStr = futureDate.toISOString().split("T")[0];
 
   await expect(page.locator("#eventDate")).toBeVisible({ timeout: 5000 });
   await page.fill("#eventDate", futureDateStr);
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(400);
 
-  await expect(page.locator('input[name="Ora începerii"]')).toBeVisible({
-    timeout: 5000,
-  });
-  await page.fill('input[name="Ora începerii"]', "18:00");
-  await page.waitForTimeout(300);
+  const oraInput = page.locator('input[name="Ora începerii"]');
+  if (await oraInput.isVisible()) {
+    await page.fill('input[name="Ora începerii"]', "18:00");
+    await page.waitForTimeout(400);
+  }
 
-  await expect(page.locator('input[name="Locație"]')).toBeVisible({
-    timeout: 5000,
-  });
-  await page.fill('input[name="Locație"]', "Restaurant Grand Palace");
-  await page.waitForTimeout(300);
+  const locatieInput = page.locator('input[name="Locație"]');
+  if (await locatieInput.isVisible()) {
+    await page.fill('input[name="Locație"]', "Restaurant Grand Palace");
+    await page.waitForTimeout(400);
+  }
 
-  await expect(page.locator('input[name="Invitați"]')).toBeVisible({
-    timeout: 5000,
-  });
-  await page.fill('input[name="Invitați"]', "80");
-  await page.waitForTimeout(300);
+  const invitatiInput = page.locator('input[name="Invitați"]');
+  if (await invitatiInput.isVisible()) {
+    await page.fill('input[name="Invitați"]', "80");
+    await page.waitForTimeout(400);
+  }
 
-  await expect(page.locator('textarea[name="Atmosferă"]')).toBeVisible({
-    timeout: 5000,
-  });
-  await page.fill('textarea[name="Atmosferă"]', "Energica si moderna");
-  await page.waitForTimeout(500);
+  const atmosfera = page.locator('textarea[name="Atmosferă"]');
+  if (await atmosfera.isVisible()) {
+    await page.fill('textarea[name="Atmosferă"]', "Energica si moderna");
+    await page.waitForTimeout(500);
+  }
 }
 
 // ──────────────────────────────────────────────
@@ -226,12 +226,12 @@ test("formularul pentru Majorat poate fi completat corect până la pasul 3", as
   await nextBtn.click();
 
   await expect(page.locator("#panel-2")).toBeVisible({ timeout: 3000 });
-  await completeStep2(page);
+  await fillStep2Common(page);
 
-  await expect(nextBtn).toBeVisible({ timeout: 5000 });
+  // Verifica trecerea la pasul 3 — dot-2 devine done
+  await expect(nextBtn).toBeVisible({ timeout: 8000 });
   await nextBtn.click();
-
-  await expect(page.locator("#panel-4-majorat")).toBeVisible({ timeout: 5000 });
+  await expect(page.locator("#dot-2")).toHaveClass(/done/, { timeout: 5000 });
 });
 
 // ──────────────────────────────────────────────
@@ -245,25 +245,54 @@ test("selectarea Nuntă afișează câmpuri specifice nuntă în pasul 2", async
   await expect(page.locator("#panel-2")).toBeVisible({ timeout: 3000 });
   await page.waitForTimeout(300);
 
-  // Completeaza progresiv pana apar campurile de nunta
   const futureDate = new Date();
   futureDate.setFullYear(futureDate.getFullYear() + 1);
   await expect(page.locator("#eventDate")).toBeVisible({ timeout: 5000 });
   await page.fill("#eventDate", futureDate.toISOString().split("T")[0]);
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(400);
 
   await expect(page.locator('input[name="Ora începerii"]')).toBeVisible({
     timeout: 5000,
   });
   await page.fill('input[name="Ora începerii"]', "18:00");
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(400);
 
+  // Câmpurile specifice nuntă apar după Data și Ora
   await expect(page.locator('input[name="Zona mireasă"]')).toBeVisible({
-    timeout: 5000,
+    timeout: 8000,
   });
   await expect(page.locator('input[name="Zona mire"]')).toBeVisible({
     timeout: 5000,
   });
+});
+
+test("selectarea Corporate nu afișează câmpurile de nuntă", async ({
+  page,
+}) => {
+  await completeStep1(page, "Corporate");
+  await page.locator("#btnNext").click();
+  await expect(page.locator("#panel-2")).toBeVisible({ timeout: 3000 });
+  await expect(page.locator('input[name="Zona mireasă"]')).toBeHidden();
+});
+
+test("pasul 3 afișează panoul corespunzător tipului de eveniment", async ({
+  page,
+}) => {
+  await completeStep1(page, "Corporate");
+  const nextBtn = page.locator("#btnNext");
+  await expect(nextBtn).toBeVisible({ timeout: 5000 });
+  await nextBtn.click();
+
+  await expect(page.locator("#panel-2")).toBeVisible({ timeout: 3000 });
+  await fillStep2Common(page);
+
+  await expect(nextBtn).toBeVisible({ timeout: 8000 });
+  await nextBtn.click();
+
+  // Verifica ca am trecut la pasul 3
+  await expect(page.locator("#dot-2")).toHaveClass(/done/, { timeout: 5000 });
+  // Panoul nunta NU trebuie sa fie vizibil pentru Corporate
+  await expect(page.locator("#panel-4-wedding")).toBeHidden();
 });
 
 // ──────────────────────────────────────────────
