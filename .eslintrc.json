@@ -1,0 +1,57 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "commonjs": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "script"
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-undef": "warn",
+    "no-console": "off",
+    "semi": ["warn", "always"],
+    "eqeqeq": ["warn", "always"],
+    "no-var": "warn",
+    "prefer-const": "warn",
+    "no-duplicate-case": "error",
+    "no-unreachable": "error",
+    "no-empty": "warn"
+  },
+  "globals": {
+    "document": "readonly",
+    "window": "readonly",
+    "console": "readonly",
+    "setTimeout": "readonly",
+    "clearTimeout": "readonly",
+    "alert": "readonly",
+    "fetch": "readonly",
+    "FormData": "readonly",
+    "URL": "readonly",
+    "URLSearchParams": "readonly",
+    "localStorage": "readonly",
+    "sessionStorage": "readonly",
+    "Event": "readonly",
+    "HTMLElement": "readonly",
+    "Node": "readonly",
+    "Set": "readonly",
+    "Map": "readonly",
+    "Promise": "readonly",
+    "requestAnimationFrame": "readonly"
+  },
+  "overrides": [
+    {
+      "files": ["tests/**/*.js", "playwright.config.js"],
+      "env": {
+        "node": true,
+        "commonjs": true
+      },
+      "rules": {
+        "no-undef": "off"
+      }
+    }
+  ]
+}

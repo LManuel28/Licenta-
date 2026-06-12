@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TramEvents – Formular Eveniment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+    rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="bg-glow"></div>
+
+  <div class="page-wrap">
+    <div class="card">
+
+      <div class="card-header">
+        <div class="logo-wrap">
+          <div class="logo-circle">
+            <img src="logo.png" alt="TramEvents Logo"
+              onerror="this.parentElement.innerHTML='<span style=\'font-family:serif;color:#fff;font-size:28px;font-weight:700;letter-spacing:0.15em;text-align:center;line-height:1.4;\'>TRAM<br>EVENTS</span>'">
+          </div>
+        </div>
+      </div>
+
+      <h1 class="main-heading">
+        Formular organizare<br>
+        <span class="accent">eveniment</span>
+      </h1>
+
+      <p class="header-desc">
+        Fiecare detaliu contează. Acest chestionar ne permite să sincronizăm perfect vibe-ul evenimentului tău cu
+        așteptările celor mai exigenți invitați.
+      </p>
+
+      <div class="stepper-wrap">
+        <div class="stepper" id="stepper">
+          <div class="step-track">
+            <div class="step-track-fill" id="trackFill"></div>
+          </div>
+          <div class="step-item active" data-step="1">
+            <div class="step-dot active" id="dot-1"><span class="dot-num">1</span></div>
+            <div class="step-label">Contact</div>
+          </div>
+          <div class="step-item" data-step="2">
+            <div class="step-dot" id="dot-2"><span class="dot-num">2</span></div>
+            <div class="step-label">Logistică &amp; Muzică</div>
+          </div>
+          <div class="step-item" data-step="3" id="step-item-3" class="step-item--hidden">
+            <div class="step-dot" id="dot-3"><span class="dot-num">3</span></div>
+            <div class="step-label" id="step-label-3">Special</div>
+          </div>
+        </div>
+      </div>
+
+      <form id="mainForm" action="https://formsubmit.co/formular@tramevents.ro" method="POST" class="form-body" novalidate>
+        <input type="hidden" name="_subject" value="Formular nou TramEvents">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" class="honeypot-field" aria-label="honeypot" aria-hidden="true" tabindex="-1" autocomplete="off">
+        <input type="hidden" name="_next" value="https://tramevents.ro/multumim.html">
+
+        <div class="step-panel active" id="panel-1">
+          <div class="panel-header">
+            <h2 class="panel-title">Date de <em>Contact</em> &amp;<br>Tip Eveniment</h2>
+            <p class="panel-desc">Să începem cu definirea cadrului general pentru evenimentul tău.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="field-group">
+            <label class="field-label">Pentru ce tip de eveniment dorești colaborarea? <span
+                class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="field-select" name="Tip eveniment" id="eventType" aria-label="Tip eveniment" required>
+                <option value="" disabled selected>Selectează tipul evenimentului</option>
+                <option value="Nuntă">💍 Nuntă</option>
+                <option value="Cununie">🥂 Cununie</option>
+                <option value="Majorat">🎉 Majorat</option>
+                <option value="Botez">🍼 Botez</option>
+                <option value="Petrecere privată">🎈 Petrecere privată</option>
+                <option value="Corporate">💼 Corporate</option>
+                <option value="Banchet">🎓 Banchet</option>
+                <option value="Bal">🎭 Bal</option>
+                <option value="Aniversare">🎂 Aniversare</option>
+                <option value="Alt tip de eveniment">🔮 Alt tip</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Nume complet organizator <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Nume organizator" autocomplete="name" required
+              placeholder="Ex: Popescu Andrei">
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Adresă personală de email <span class="req">*</span></label>
+              <input type="email" class="field-input" name="Email" autocomplete="email" required
+                placeholder="email@domeniu.ro">
+            </div>
+            <div class="field-group">
+              <label class="field-label">Număr de contact (mobil) <span class="req">*</span></label>
+              <div class="phone-row">
+                <div class="select-wrap phone-prefix">
+                  <select class="field-select" name="Prefix telefon" aria-label="Prefix telefon" required>
+                    <option value="+40">RO +40</option>
+                    <option value="+44">UK +44</option>
+                    <option value="+49">DE +49</option>
+                    <option value="+33">FR +33</option>
+                    <option value="+39">IT +39</option>
+                    <option value="+36">HU +36</option>
+                    <option value="+1">US +1</option>
+                  </select>
+                </div>
+                <input type="tel" class="field-input" name="Telefon" placeholder="7xx xxx xxx" inputmode="numeric"
+                  pattern="[0-9]*" oninput="this.value=this.value.replace(/[^0-9]/g,'')" maxlength="9" required>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step-panel" id="panel-2">
+          <div class="panel-header">
+            <h2 class="panel-title">Logistica <em>Evenimentului</em></h2>
+            <p class="panel-desc">Datele tehnice și detaliile despre desfășurarea fizică a evenimentului.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="grid-3">
+            <div class="field-group">
+              <label class="field-label">Data evenimentului <span class="req">*</span></label>
+              <input type="date" class="field-input" name="Data evenimentului" id="eventDate" aria-label="Data evenimentului" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Ora începerii <span class="req">*</span></label>
+              <input type="time" class="field-input" name="Ora începerii" aria-label="Ora începerii" required>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Locația (Oraș / Sală) <span class="req">*</span></label>
+              <input type="text" class="field-input" name="Locație"
+                placeholder="Ex: Restaurant Grand Palace, Cluj-Napoca" required>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Număr aproximativ de invitați <span class="req">*</span></label>
+            <div class="num-wrap">
+              <input type="number" class="field-input" name="Invitați" placeholder="Ex: 150" min="1" step="1"
+                inputmode="numeric" required class="field-input--num-phone">
+              <span class="num-suffix">persoane</span>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Descrie atmosfera dorită <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă" aria-label="Atmosferă" required
+              placeholder="Ex: Elegantă și sofisticată la recepție, cu tranziție treptată spre o petrecere cu energie înaltă spre miezul nopții..."></textarea>
+          </div>
+          <div id="weddingStep2Fields">
+            <div class="section-divider">
+              <div class="section-divider-line"></div>
+              <div class="section-divider-label">Detalii sensibile &amp; familie</div>
+              <div class="section-divider-line"></div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field-group">
+                <label class="field-label">Există membri apropiați ai familiei mirelui care nu mai sunt printre noi?
+                  <span class="req">*</span></label>
+                <textarea class="field-textarea" name="Persoane decedate familia mirelui" aria-label="Persoane decedate familia mirelui" required
+                  placeholder="Ex: Nu / Da - tatăl, bunica, fratele etc. Ne ajută să evităm momente sensibile sau dedicații nepotrivite."></textarea>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">Există membri apropiați ai familiei miresei care nu mai sunt printre noi?
+                  <span class="req">*</span></label>
+                <textarea class="field-textarea" name="Persoane decedate familia miresei" aria-label="Persoane decedate familia miresei" required
+                  placeholder="Ex: Nu / Da - mama, bunicul, sora etc. Ne ajută să evităm momente sensibile sau dedicații nepotrivite."></textarea>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Care este media de vârstă predominantă? <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select class="field-select" name="Media de vârstă" aria-label="Media de vârstă" required>
+                  <option value="" disabled selected>Selectează media de vârstă</option>
+                  <option value="Sub 18 ani">🧒 Sub 18 ani</option>
+                  <option value="18-25 ani">🔥 18–25 ani</option>
+                  <option value="25-35 ani">🚀 25–35 ani</option>
+                  <option value="35-50 ani">⭐ 35–50 ani</option>
+                  <option value="50+ ani">🥂 50+ ani</option>
+                  <option value="Mixtă">🎨 Mixtă / toate categoriile</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field-group">
+                <label class="field-label">Din ce zonă / județ provine mireasa? <span class="req">*</span></label>
+                <input type="text" class="field-input" name="Zona mireasă" placeholder="Ex: Mureș, Cluj, Maramureș..."
+                  required>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">Din ce zonă / județ provine mirele? <span class="req">*</span></label>
+                <input type="text" class="field-input" name="Zona mire" placeholder="Ex: Mureș, Cluj, Maramureș..."
+                  required>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field-group">
+                <label class="field-label">Din ce zonă provin părinții miresei? <span class="req">*</span></label>
+                <input type="text" class="field-input" name="Zona părinți mireasă" placeholder="Ex: zona / județul..."
+                  required>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">Din ce zonă provin părinții mirelui? <span class="req">*</span></label>
+                <input type="text" class="field-input" name="Zona părinți mire" placeholder="Ex: zona / județul..."
+                  required>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Din ce zonă provin nașii? <span class="req">*</span></label>
+              <input type="text" class="field-input" name="Zona nași" placeholder="Ex: zona / județul..." required>
+            </div>
+
+            <div class="section-divider">
+              <div class="section-divider-line"></div>
+              <div class="section-divider-label">Piese importante</div>
+              <div class="section-divider-line"></div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Spuneți-ne 5 piese preferate ale nașilor <span class="req">*</span></label>
+              <textarea class="field-textarea" name="5 piese preferate nași" aria-label="5 piese preferate nași" required
+                placeholder="1) ..., 2) ..., 3) ..., 4) ..., 5) ..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți să faceți marșul mirilor? Dacă da, ce piesă doriți? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Marșul mirilor" aria-label="Marșul mirilor" required
+                placeholder="Ex: Nu / Da - piesa dorită este..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Aveți domnișori / domnișoare de onoare? Dacă da, pe ce piesă doriți să își facă
+                intrarea? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Domnișori domnișoare onoare intrare" aria-label="Domnișori domnișoare onoare intrare" required
+                placeholder="Ex: Nu / Da - piesa pentru intrare este..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Când doriți să faceți dansul mirilor? <span class="req">*</span></label>
+              <div class="select-wrap">
+                <select class="field-select" name="Moment dansul mirilor" aria-label="Moment dansul mirilor" required>
+                  <option value="" disabled selected>Selectează momentul</option>
+                  <option>Înainte de aperitiv</option>
+                  <option>După aperitiv</option>
+                  <option>Alt moment / stabilim împreună</option>
+                </select>
+              </div>
+            </div>
+
+
+
+            <div class="section-divider">
+              <div class="section-divider-line"></div>
+              <div class="section-divider-label">Program &amp; momente</div>
+              <div class="section-divider-line"></div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Câte feluri de mâncare vor fi și la ce ore aproximative se servesc? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Feluri mâncare și ore servire" aria-label="Feluri mâncare și ore servire" required
+                placeholder="Ex: Aperitiv ora 18:30, fel principal ora 21:00, sarmale ora 00:30..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">La ce oră va fi momentul tortului? <span class="req">*</span></label>
+              <input type="text" class="field-input" name="Ora tortului" placeholder="Ex: 23:30 / 00:00" required>
+            </div>
+
+            <div class="grid-2 wedding-equal-grid">
+              <div class="field-group">
+                <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+                <textarea class="field-textarea" name="Artiști nuntă" aria-label="Artiști nuntă" required
+                  placeholder="Ex: Nu / Da - nume artist / formație..."></textarea>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">O să fie momente artistice? Ce momente? Cine? <span
+                    class="req">*</span></label>
+                <textarea class="field-textarea" name="Momente artistice nuntă" aria-label="Momente artistice nuntă" required
+                  placeholder="Ex: Nu / Da - dansatori, moment folcloric, saxofon etc."></textarea>
+              </div>
+            </div>
+
+            <div class="section-divider">
+              <div class="section-divider-line"></div>
+              <div class="section-divider-label">Ce evităm</div>
+              <div class="section-divider-line"></div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field-group">
+                <label class="field-label">
+                  Ce stiluri muzicale NU doriți să se audă deloc la nuntă? <span class="req">*</span>
+                </label>
+                <textarea class="field-textarea" name="Stiluri muzicale interzise" aria-label="Stiluri muzicale interzise" required
+                  placeholder="Ex: manele după ora 1, trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">
+                  Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span
+                    class="req">*</span>
+                </label>
+                <textarea class="field-textarea" name="Melodii interzise sau sensibile" aria-label="Melodii interzise sau sensibile" required
+                  placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+              </div>
+            </div>
+
+            <div class="section-divider">
+              <div class="section-divider-line"></div>
+              <div class="section-divider-label">Vibe-ul petrecerii</div>
+              <div class="section-divider-line"></div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club /
+                party?
+                <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Atmosferă elegantă sau party" aria-label="Atmosferă elegantă sau party" required
+                placeholder="Descrieți vibe-ul dorit..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Care este genul de petrecere pe care îl preferați? <span
+                  class="req">*</span></label>
+              <div class="select-wrap">
+                <select class="field-select" name="Gen petrecere preferat" aria-label="Gen petrecere preferat" required>
+                  <option value="" disabled selected>Selectează genul de petrecere</option>
+                  <option value="Elegantă">✨ Elegantă</option>
+                  <option value="Modernă">🚀 Modernă</option>
+                  <option value="Festival vibe">🎪 Festival vibe</option>
+                  <option value="Clubbing">🎧 Clubbing</option>
+                  <option value="Tradițională">🎻 Tradițională</option>
+                  <option value="Mixtă">🔥 Mixtă</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="field-group">
+                <label class="field-label">Aveți mulți invitați care dansează muzică populară / tradițională? <span
+                    class="req">*</span></label>
+                <textarea class="field-textarea" name="Invitați dansează populară" aria-label="Invitați dansează populară" required
+                  placeholder="Ex: Da, mulți / Puțini / Nu prea..."></textarea>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse
+                  anumite
+                  stiluri muzicale? <span class="req">*</span></label>
+                <textarea class="field-textarea" name="Invitați alte țări culturi" aria-label="Invitați alte țări culturi" required
+                  placeholder="Ex: Nu / Da - invitați din Ungaria, Germania, Italia etc."></textarea>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți hore / sârbe / tradiționale într-un anumit interval al serii? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Interval hore sârbe tradiționale" aria-label="Interval hore sârbe tradiționale" required
+                placeholder="Ex: după primul fel, după tort, mai spre final etc."></textarea>
+            </div>
+
+            <div class="section-divider">
+              <div class="section-divider-line"></div>
+              <div class="section-divider-label">Așteptări &amp; emoții</div>
+              <div class="section-divider-line"></div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce v-ați dori să spună invitații despre nunta voastră după eveniment? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Cum să descrie invitații nunta" required aria-label="Cum să descrie invitații nunta"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Cel mai important lucru atmosferă" required aria-label="Cel mai important lucru atmosferă"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Petrecere reușită înseamnă" required aria-label="Petrecere reușită înseamnă"></textarea>
+            </div>
+
+            <div class="grid-2">
+              <div class="field-group">
+                <label class="field-label">Ați fost la nunți unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span
+                    class="req">*</span></label>
+                <textarea class="field-textarea" name="Nunți cu atmosferă plăcută" required aria-label="Nunți cu atmosferă plăcută"></textarea>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label">Ați fost la nunți unde NU v-a plăcut atmosfera? Ce a lipsit? <span
+                    class="req">*</span></label>
+                <textarea class="field-textarea" name="Nunți cu atmosferă neplăcută" required aria-label="Nunți cu atmosferă neplăcută"></textarea>
+              </div>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres legat de petrecere" required aria-label="Stres legat de petrecere"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la nunta voastră? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple" required aria-label="Ce nu vreți să se întâmple"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Care este momentul pe care îl așteptați cel mai mult? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Moment cel mai așteptat" required aria-label="Moment cel mai așteptat"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Cum vreți să vă simțiți voi în timpul petrecerii? <span
+                  class="req">*</span></label>
+              <textarea class="field-textarea" name="Cum vreți să vă simțiți" required aria-label="Cum vreți să vă simțiți"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Mai există orice alt detaliu care considerați că ne-ar ajuta să facem
+                petrecerea
+                exact cum vă doriți? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Alte detalii nuntă" aria-label="Alte detalii nuntă" required
+                placeholder="Dacă nu mai este nimic de adăugat, scrieți -"></textarea>
+            </div>
+
+
+          </div>
+
+          <div id="generalMusicVibeFields">
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Muzică &amp; vibe</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce genuri muzicale vor prinde cel mai bine? <span class="req">*</span> <span
+                class="label-hint">—
+                selectează cel puțin unul</span></label>
+            <div class="genres-grid">
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Comercial" class="genre-cb"><span
+                  class="genre-emoji">🎵</span><span class="genre-name">Comercial</span><span class="genre-sub">Radio ·
+                  Hits · Top</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Retro" class="genre-cb"><span
+                  class="genre-emoji">📻</span><span class="genre-name">Retro</span><span class="genre-sub">80s · 90s ·
+                  Gold</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Latino" class="genre-cb"><span
+                  class="genre-emoji">💃</span><span class="genre-name">Latino</span><span class="genre-sub">Reggaeton ·
+                  Salsa</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="House" class="genre-cb"><span
+                  class="genre-emoji">⚡</span><span class="genre-name">House</span><span class="genre-sub">EDM · Deep ·
+                  Tech</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Populară" class="genre-cb"><span
+                  class="genre-emoji">🎻</span><span class="genre-name">Populară</span><span
+                  class="genre-sub">Tradițională · Joc</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Rock" class="genre-cb"><span
+                  class="genre-emoji">🎸</span><span class="genre-name">Rock</span><span class="genre-sub">Classic ·
+                  Pop-Rock</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Hip-Hop" class="genre-cb"><span
+                  class="genre-emoji">🎤</span><span class="genre-name">Hip-Hop</span><span class="genre-sub">Rap · R&amp;B
+                  · Urban</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Manele" class="genre-cb"><span
+                  class="genre-emoji">🎺</span><span class="genre-name">Manele</span><span class="genre-sub">Party · No
+                  Limit</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Balkan" class="genre-cb"><span
+                  class="genre-emoji">🦁</span><span class="genre-name">Balkan</span><span class="genre-sub">Balcanice ·
+                  Brass</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Maghiară" class="genre-cb"><span
+                  class="genre-emoji">🎶</span><span class="genre-name">Maghiară</span><span
+                  class="genre-sub">Traditional · Modern</span>
+                <div class="genre-check"></div>
+              </label>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Melodii care ridică garantat lumea la dans <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii bune" aria-label="Melodii bune" required
+                placeholder="Ex: Dua Lipa - Levitating, Azur - Mai întoarce-te o dată, Danza Kuduro..."></textarea>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Melodii / Genuri de evitat <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii de evitat" aria-label="Melodii de evitat" required
+                placeholder="Ex: Fără metal extrem, exclus manele lente, evitat piesa X..."></textarea>
+            </div>
+          </div>
+
+
+          </div>
+
+          <div id="gdpr-step3">
+            <label class="gdpr-wrap" id="gdprLabel">
+              <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" required id="gdprCheck">
+              <div class="gdpr-box"></div>
+              <p class="gdpr-text">Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea
+                muzicală și logistică a evenimentului meu de către echipa <strong>TramEvents</strong>. <span
+                  class="req">*</span></p>
+            </label>
+          </div>
+        </div>
+
+        <div class="step-panel" id="panel-4-wedding">
+          <div class="panel-header">
+            <h2 class="panel-title">Preferințe <em>Nuntă</em></h2>
+            <p class="panel-desc">Ghid detaliat pentru momentele voastre cheie și ale familiei.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="info-box">
+            ✨ <strong>Sfat profesional:</strong> Cu cât ești mai specific/ă cu piesele preferate ale familiei, cu atât
+            mai
+            personalizată va fi experiența pentru toți invitații.
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">🕺 Piesa deschiderii dansului (primul dans) <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Piesa primul dans" id="weddingFirstDance"
+              placeholder="Ex: Ed Sheeran - Perfect, Sia - A Thousand Years..." required>
+          </div>
+
+          <div class="wedding-grid">
+            <div class="field-group">
+              <label class="field-label">Melodii preferate — Mireasă <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Top melodii mireasă"
+                placeholder="Piese esențiale / Scrie '-' dacă nu e cazul..." aria-label="Top melodii mireasă" required></textarea>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Melodii preferate — Mire <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Top melodii mire" placeholder="Piese esențiale / Scrie '-' dacă nu e cazul..." aria-label="Top melodii mire" required></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Preferințe &amp; Socri</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="wedding-grid">
+            <div class="field-group">
+              <label class="field-label">Melodii preferate — Socrul Mare <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Socrul mare" placeholder="Ex: melodie... / '-'" aria-label="Socrul mare" required></textarea>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Melodii preferate — Soacra Mare <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Soacra mare" placeholder="Ex: melodie... / '-'" aria-label="Soacra mare" required></textarea>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Melodii preferate — Socrul Mic <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Socrul mic" placeholder="Ex: melodie... / '-'" aria-label="Socrul mic" required></textarea>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Melodii preferate — Soacra Mică <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Soacra mică" placeholder="Ex: melodie... / '-'" aria-label="Soacra mică" required></textarea>
+            </div>
+          </div>
+
+
+
+          <div id="weddingMusicVibeFields">
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Muzică &amp; vibe</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce genuri muzicale vor prinde cel mai bine? <span class="req">*</span> <span
+                class="label-hint">—
+                selectează cel puțin unul</span></label>
+            <div class="genres-grid">
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Comercial" class="genre-cb"><span
+                  class="genre-emoji">🎵</span><span class="genre-name">Comercial</span><span class="genre-sub">Radio ·
+                  Hits · Top</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Retro" class="genre-cb"><span
+                  class="genre-emoji">📻</span><span class="genre-name">Retro</span><span class="genre-sub">80s · 90s ·
+                  Gold</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Latino" class="genre-cb"><span
+                  class="genre-emoji">💃</span><span class="genre-name">Latino</span><span class="genre-sub">Reggaeton ·
+                  Salsa</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="House" class="genre-cb"><span
+                  class="genre-emoji">⚡</span><span class="genre-name">House</span><span class="genre-sub">EDM · Deep ·
+                  Tech</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Populară" class="genre-cb"><span
+                  class="genre-emoji">🎻</span><span class="genre-name">Populară</span><span
+                  class="genre-sub">Tradițională · Joc</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Rock" class="genre-cb"><span
+                  class="genre-emoji">🎸</span><span class="genre-name">Rock</span><span class="genre-sub">Classic ·
+                  Pop-Rock</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Hip-Hop" class="genre-cb"><span
+                  class="genre-emoji">🎤</span><span class="genre-name">Hip-Hop</span><span class="genre-sub">Rap · R&amp;B
+                  · Urban</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Manele" class="genre-cb"><span
+                  class="genre-emoji">🎺</span><span class="genre-name">Manele</span><span class="genre-sub">Party · No
+                  Limit</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Balkan" class="genre-cb"><span
+                  class="genre-emoji">🦁</span><span class="genre-name">Balkan</span><span class="genre-sub">Balcanice ·
+                  Brass</span>
+                <div class="genre-check"></div>
+              </label>
+              <label class="genre-card"><input type="checkbox" name="Genuri[]" value="Maghiară" class="genre-cb"><span
+                  class="genre-emoji">🎶</span><span class="genre-name">Maghiară</span><span
+                  class="genre-sub">Traditional · Modern</span>
+                <div class="genre-check"></div>
+              </label>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Melodii care ridică garantat lumea la dans <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii bune" aria-label="Melodii bune" required
+                placeholder="Ex: Dua Lipa - Levitating, Azur - Mai întoarce-te o dată, Danza Kuduro..."></textarea>
+            </div>
+            <div class="field-group">
+              <label class="field-label">Melodii / Genuri de evitat <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii de evitat" aria-label="Melodii de evitat" required
+                placeholder="Ex: Fără metal extrem, exclus manele lente, evitat piesa X..."></textarea>
+            </div>
+          </div>
+
+
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4w">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4w">
+            <div class="gdpr-box"></div>
+            <p class="gdpr-text">Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea
+              muzicală
+              și logistică a evenimentului meu de către echipa <strong>TramEvents</strong>. <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+
+        <div class="step-panel" id="panel-4-majorat">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Majorat</em></h2>
+            <p class="panel-desc">Personalizează cele mai importante momente ale serii tale.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="field-group">
+            <label class="field-label">Dorești un dans de deschidere? <span class="req">*</span></label>
+            <div class="toggle-group">
+              <div class="toggle-btn" id="majorat-yes" onclick="toggleDance('majorat','yes')">✅ Da, vreau dans de
+                deschidere</div>
+              <div class="toggle-btn" id="majorat-no" onclick="toggleDance('majorat','no')">❌ Nu, fără dans de
+                deschidere
+              </div>
+            </div>
+            <input type="hidden" name="Dans deschidere majorat" id="majorat-dance-val" value="">
+            <div class="reveal-box" id="majorat-reveal">
+              <div class="dance-field">
+                <label class="field-label">🕺 Piesa dansului de deschidere</label>
+                <input type="text" class="field-input" name="Piesa dans deschidere majorat" id="majorat-dance-song"
+                  placeholder="Ex: Sia - Chandelier, Beyoncé - Crazy in Love...">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Preferințe sărbătorit &amp; gașcă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Există persoane apropiate ale sărbătoritului / sărbătoritei care nu mai sunt
+              printre noi? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Persoane apropiate decedate majorat" aria-label="Persoane apropiate decedate majorat" required
+              placeholder="Ex: Nu / Da - părinte, bunic, frate/soră etc. Ne ajută să evităm momente sensibile sau dedicații nepotrivite."></textarea>
+          </div>
+          <div class="field-group">
+            <label class="field-label">
+              Vor exista surprize pentru sărbătorit / sărbătorită? Dacă da, ce fel de surprize?
+              <span class="req">*</span>
+            </label>
+
+            <textarea class="field-textarea" name="Surprize majorat" aria-label="Surprize majorat" required
+              placeholder="Ex: Nu / Da - tort surpriză, artificii, moment special, dedicație, video, cadou etc."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Top piese preferate ale sărbătoritului / sărbătoritei <span
+                class="req">*</span></label>
+            <textarea class="field-textarea" name="Top piese sărbătorit majorat" aria-label="Top piese sărbătorit majorat" required
+              placeholder="Ex: 1) ..., 2) ..., 3) ..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Top piese preferate în gașca sărbătoritului / sărbătoritei <span
+                class="req">*</span></label>
+            <textarea class="field-textarea" name="Top piese gașcă majorat" aria-label="Top piese gașcă majorat" required
+              placeholder="Ex: 1) ..., 2) ..., 3) ..."></textarea>
+          </div>
+
+          
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă majorat</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; momente</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Câte feluri de mâncare vor fi și la ce ore aproximative se servesc? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Feluri mâncare și ore servire majorat" aria-label="Feluri mâncare și ore servire majorat" required
+              placeholder="Ex: aperitiv ora 18:30, fel principal ora 21:00, tort ora 00:00..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">La ce oră va fi momentul tortului? <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Ora tortului majorat" placeholder="Ex: 23:30 / 00:00" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști majorat" aria-label="Artiști majorat" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">O să fie momente artistice? Ce momente? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Momente artistice majorat" aria-label="Momente artistice majorat" required
+                placeholder="Ex: dansatori, saxofon, moment folcloric, surpriză, video etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise majorat" aria-label="Stiluri muzicale interzise majorat" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile majorat" aria-label="Melodii interzise sau sensibile majorat" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party majorat" aria-label="Atmosferă elegantă sau party majorat" required
+              placeholder="Descrieți vibe-ul dorit pentru majorat..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este genul de petrecere pe care îl preferați? <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="field-select" name="Gen petrecere preferat majorat" aria-label="Gen petrecere preferat majorat" required>
+                <option value="" disabled selected>Selectează genul de petrecere</option>
+                <option value="Elegantă">✨ Elegantă</option>
+                <option value="Tradițională">🎻 Tradițională</option>
+                <option value="Modernă">🚀 Modernă</option>
+                <option value="Festival vibe">🎪 Festival vibe</option>
+                <option value="Clubbing">🎧 Clubbing</option>
+                <option value="Mixtă">🔥 Mixtă</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Aveți mulți invitați care dansează muzică populară / tradițională? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Invitați dansează populară majorat" aria-label="Invitați dansează populară majorat" required
+                placeholder="Ex: Da, mulți / Puțini / Nu prea..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți hore / sârbe / tradiționale într-un anumit interval al serii? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Interval hore sârbe tradiționale majorat" aria-label="Interval hore sârbe tradiționale majorat" required
+                placeholder="Ex: după primul fel, după tort, mai spre final etc."></textarea>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi majorat" aria-label="Invitați alte țări culturi majorat" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre majorat după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații majorat" required aria-label="Cum să descrie invitații majorat"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă majorat" required aria-label="Cel mai important lucru atmosferă majorat"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită majorat" required aria-label="Petrecere reușită majorat"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută majorat" required aria-label="Petreceri atmosferă plăcută majorat"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută majorat" required aria-label="Petreceri atmosferă neplăcută majorat"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere majorat" aria-label="Stres petrecere majorat" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple majorat" aria-label="Ce nu vreți să se întâmple majorat" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4m">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4m">
+            <div class="gdpr-box"></div>
+            <p class="gdpr-text">Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea
+              muzicală
+              și logistică a evenimentului meu de către echipa <strong>TramEvents</strong>. <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+
+        <div class="step-panel" id="panel-4-botez">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Botez</em></h2>
+            <p class="panel-desc">Personalizează momentele muzicale ale acestei zile speciale.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="field-group">
+            <label class="field-label">Dorești un dans de deschidere? <span class="req">*</span></label>
+            <div class="toggle-group">
+              <div class="toggle-btn" id="botez-yes" onclick="toggleDance('botez','yes')">✅ Da, vreau dans de deschidere
+              </div>
+              <div class="toggle-btn" id="botez-no" onclick="toggleDance('botez','no')">❌ Nu, fără dans de deschidere
+              </div>
+            </div>
+            <input type="hidden" name="Dans deschidere botez" id="botez-dance-val" value="">
+            <div class="reveal-box" id="botez-reveal">
+              <div class="dance-field">
+                <label class="field-label">🕺 Piesa dansului de deschidere</label>
+                <input type="text" class="field-input" name="Piesa dans deschidere botez" id="botez-dance-song"
+                  placeholder="Ex: o melodie lentă și specială...">
+              </div>
+            </div>
+          </div>
+
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Detalii sensibile familie</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Există membri apropiați ai familiei care nu mai sunt printre noi? <span
+                class="req">*</span></label>
+            <textarea class="field-textarea" name="Persoane apropiate decedate botez" aria-label="Persoane apropiate decedate botez" required
+              placeholder="Ex: Nu / Da - părinte, bunic, frate/soră etc. Ne ajută să evităm momente sensibile sau dedicații nepotrivite."></textarea>
+          </div>
+
+          
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă botez</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; momente</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Câte feluri de mâncare vor fi și la ce ore aproximative se servesc? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Feluri mâncare și ore servire botez" aria-label="Feluri mâncare și ore servire botez" required
+              placeholder="Ex: aperitiv ora 18:30, fel principal ora 21:00, tort ora 00:00..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">La ce oră va fi momentul tortului? <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Ora tortului botez" placeholder="Ex: 23:30 / 00:00" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști botez" aria-label="Artiști botez" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">O să fie momente artistice? Ce momente? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Momente artistice botez" aria-label="Momente artistice botez" required
+                placeholder="Ex: dansatori, saxofon, moment folcloric, surpriză, video etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise botez" aria-label="Stiluri muzicale interzise botez" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile botez" aria-label="Melodii interzise sau sensibile botez" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party botez" aria-label="Atmosferă elegantă sau party botez" required
+              placeholder="Descrieți vibe-ul dorit pentru botez..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este genul de petrecere pe care îl preferați? <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="field-select" name="Gen petrecere preferat botez" aria-label="Gen petrecere preferat botez" required>
+                <option value="" disabled selected>Selectează genul de petrecere</option>
+                <option value="Elegantă">✨ Elegantă</option>
+                <option value="Tradițională">🎻 Tradițională</option>
+                <option value="Modernă">🚀 Modernă</option>
+                <option value="Festival vibe">🎪 Festival vibe</option>
+                <option value="Clubbing">🎧 Clubbing</option>
+                <option value="Mixtă">🔥 Mixtă</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Aveți mulți invitați care dansează muzică populară / tradițională? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Invitați dansează populară botez" aria-label="Invitați dansează populară botez" required
+                placeholder="Ex: Da, mulți / Puțini / Nu prea..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți hore / sârbe / tradiționale într-un anumit interval al serii? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Interval hore sârbe tradiționale botez" aria-label="Interval hore sârbe tradiționale botez" required
+                placeholder="Ex: după primul fel, după tort, mai spre final etc."></textarea>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi botez" aria-label="Invitați alte țări culturi botez" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre botez după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații botez" required aria-label="Cum să descrie invitații botez"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă botez" required aria-label="Cel mai important lucru atmosferă botez"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită botez" required aria-label="Petrecere reușită botez"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută botez" required aria-label="Petreceri atmosferă plăcută botez"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută botez" required aria-label="Petreceri atmosferă neplăcută botez"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere botez" aria-label="Stres petrecere botez" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple botez" aria-label="Ce nu vreți să se întâmple botez" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4b">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4b">
+            <div class="gdpr-box"></div>
+            <p class="gdpr-text">Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea
+              muzicală
+              și logistică a evenimentului meu de către echipa <strong>TramEvents</strong>. <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+        <div class="step-panel" id="panel-4-bal">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Bal</em></h2>
+            <p class="panel-desc">
+              Informații pentru momente artistice, muzică, microfoane și desfășurarea artistică.
+            </p>
+          </div>
+
+          <div class="panel-divider"></div>
+
+          <div class="field-group">
+            <label class="field-label">
+              Câte momente artistice vor exista? <span class="req">*</span>
+            </label>
+
+            <input type="number" class="field-input" id="sceneCount" name="Număr momente artistice" min="0" step="1"
+              inputmode="numeric" placeholder="Ex: 4" required>
+          </div>
+
+          <div id="sceneContainer"></div>
+
+          <div class="field-group">
+            <label class="field-label">
+              Câte microfoane vor fi folosite simultan? <span class="req">*</span>
+            </label>
+
+            <input type="number" class="field-input" name="Microfoane simultane" min="1" step="1" inputmode="numeric"
+              placeholder="Ex: 3" required>
+          </div>
+
+          
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă bal</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști bal" aria-label="Artiști bal" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise bal" aria-label="Stiluri muzicale interzise bal" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile bal" aria-label="Melodii interzise sau sensibile bal" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party bal" aria-label="Atmosferă elegantă sau party bal" required
+              placeholder="Descrieți vibe-ul dorit pentru bal..."></textarea>
+          </div>
+
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi bal" aria-label="Invitați alte țări culturi bal" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre bal după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații bal" required aria-label="Cum să descrie invitații bal"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă bal" required aria-label="Cel mai important lucru atmosferă bal"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită bal" required aria-label="Petrecere reușită bal"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută bal" required aria-label="Petreceri atmosferă plăcută bal"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută bal" required aria-label="Petreceri atmosferă neplăcută bal"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere bal" aria-label="Stres petrecere bal" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple bal" aria-label="Ce nu vreți să se întâmple bal" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4bal">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4bal">
+
+            <div class="gdpr-box"></div>
+
+            <p class="gdpr-text">
+              Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea muzicală și logistică a
+              evenimentului meu de către echipa <strong>TramEvents</strong>.
+              <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+        <div class="step-panel" id="panel-4-banchet">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Banchet</em></h2>
+            <p class="panel-desc">
+              Informații pentru momente artistice, muzică, microfoane și desfășurarea artistică.
+            </p>
+          </div>
+
+          <div class="panel-divider"></div>
+
+          <div class="field-group">
+            <label class="field-label">
+              Vor fi momente artistice? <span class="req">*</span>
+            </label>
+
+            <div class="toggle-group">
+              <div class="toggle-btn" id="banchet-scenes-yes" onclick="toggleScenes('banchet','yes')">
+                ✅ Da, vor fi momente artistice
+              </div>
+              <div class="toggle-btn" id="banchet-scenes-no" onclick="toggleScenes('banchet','no')">
+                ❌ Nu, fără momente artistice
+              </div>
+            </div>
+
+            <input type="hidden" name="Momente artistice banchet" id="banchet-scenes-val" value="">
+          </div>
+
+          <div class="reveal-box" id="banchet-scenes-reveal">
+            <div class="field-group">
+              <label class="field-label">
+                Câte momente artistice vor exista? <span class="req">*</span>
+              </label>
+
+              <input type="number" class="field-input" id="banchetSceneCount" name="Număr momente artistice banchet" min="0"
+                step="1" inputmode="numeric" placeholder="Ex: 4">
+            </div>
+
+            <div id="banchetSceneContainer"></div>
+          </div>
+
+          <div class="reveal-box" id="banchet-mics-reveal">
+            <div class="field-group">
+              <label class="field-label">
+                Câte microfoane vor fi folosite simultan? <span class="req">*</span>
+              </label>
+
+              <input type="number" class="field-input" name="Microfoane simultane banchet" id="banchet-mics-input"
+                min="1" step="1" inputmode="numeric" placeholder="Ex: 3">
+            </div>
+          </div>
+
+          
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă banchet</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; momente</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Câte feluri de mâncare vor fi și la ce ore aproximative se servesc? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Feluri mâncare și ore servire banchet" aria-label="Feluri mâncare și ore servire banchet" required
+              placeholder="Ex: aperitiv ora 18:30, fel principal ora 21:00, tort ora 00:00..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">La ce oră va fi momentul tortului? <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Ora tortului banchet" placeholder="Ex: 23:30 / 00:00" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști banchet" aria-label="Artiști banchet" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise banchet" aria-label="Stiluri muzicale interzise banchet" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile banchet" aria-label="Melodii interzise sau sensibile banchet" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party banchet" aria-label="Atmosferă elegantă sau party banchet" required
+              placeholder="Descrieți vibe-ul dorit pentru banchet..."></textarea>
+          </div>
+
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi banchet" aria-label="Invitați alte țări culturi banchet" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre banchet după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații banchet" required aria-label="Cum să descrie invitații banchet"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă banchet" required aria-label="Cel mai important lucru atmosferă banchet"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită banchet" required aria-label="Petrecere reușită banchet"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută banchet" required aria-label="Petreceri atmosferă plăcută banchet"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută banchet" required aria-label="Petreceri atmosferă neplăcută banchet"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere banchet" aria-label="Stres petrecere banchet" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple banchet" aria-label="Ce nu vreți să se întâmple banchet" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4banchet">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4banchet">
+
+            <div class="gdpr-box"></div>
+
+            <p class="gdpr-text">
+              Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea muzicală și logistică a
+              evenimentului meu de către echipa <strong>TramEvents</strong>.
+              <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+
+
+        <div class="step-panel" id="panel-4-aniversare">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Aniversare</em></h2>
+            <p class="panel-desc">Detalii pentru atmosfera aniversării și momentele importante ale serii.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă aniversare</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Câte feluri de mâncare vor fi și la ce ore aproximative se servesc? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Program servire aniversare" aria-label="Program servire aniversare" required
+              placeholder="Ex: aperitiv ora 18:30, fel principal ora 21:00, moment special ora 00:00..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">La ce oră va fi momentul tortului? <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Moment festiv aniversare" placeholder="Ex: 23:30 / 00:00 / nu este cazul" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști aniversare" aria-label="Artiști aniversare" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">O să fie momente artistice? Ce momente? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Momente artistice aniversare" aria-label="Momente artistice aniversare" required
+                placeholder="Ex: dansatori, saxofon, moment live, moment surpriză, video etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise aniversare" aria-label="Stiluri muzicale interzise aniversare" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile aniversare" aria-label="Melodii interzise sau sensibile aniversare" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party aniversare" aria-label="Atmosferă elegantă sau party aniversare" required
+              placeholder="Descrieți vibe-ul dorit pentru aniversare..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este genul de petrecere pe care îl preferați? <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="field-select" name="Gen petrecere preferat aniversare" aria-label="Gen petrecere preferat aniversare" required>
+                <option value="" disabled selected>Selectează genul de petrecere</option>
+                <option value="Elegantă">✨ Elegantă</option>
+                <option value="Tradițională">🎻 Tradițională</option>
+                <option value="Modernă">🚀 Modernă</option>
+                <option value="Festival vibe">🎪 Festival vibe</option>
+                <option value="Clubbing">🎧 Clubbing</option>
+                <option value="Mixtă">🔥 Mixtă</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Aveți mulți invitați care dansează muzică populară / tradițională? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Invitați dansează populară aniversare" aria-label="Invitați dansează populară aniversare" required
+                placeholder="Ex: Da, mulți / Puțini / Nu prea..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți hore / sârbe / tradiționale într-un anumit interval al serii? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Interval hore sârbe tradiționale aniversare" aria-label="Interval hore sârbe tradiționale aniversare" required
+                placeholder="Ex: după primul fel, după tort, mai spre final etc."></textarea>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi aniversare" aria-label="Invitați alte țări culturi aniversare" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre aniversarea voastră după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații aniversare" required aria-label="Cum să descrie invitații aniversare"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă aniversare" required aria-label="Cel mai important lucru atmosferă aniversare"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită aniversare" required aria-label="Petrecere reușită aniversare"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută aniversare" required aria-label="Petreceri atmosferă plăcută aniversare"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută aniversare" required aria-label="Petreceri atmosferă neplăcută aniversare"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere aniversare" aria-label="Stres petrecere aniversare" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple aniversare" aria-label="Ce nu vreți să se întâmple aniversare" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4aniversare">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4aniversare">
+            <div class="gdpr-box"></div>
+            <p class="gdpr-text">
+              Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea muzicală și logistică a
+              evenimentului meu de către echipa <strong>TramEvents</strong>.
+              <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+
+
+        <div class="step-panel" id="panel-4-petrecere">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Petrecere privată</em></h2>
+            <p class="panel-desc">Detalii pentru o petrecere privată adaptată invitaților și vibe-ului dorit.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă petrecere privată</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Câte feluri de mâncare vor fi și la ce ore aproximative se servesc? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Program servire petrecere" aria-label="Program servire petrecere" required
+              placeholder="Ex: aperitiv ora 18:30, fel principal ora 21:00, moment special ora 00:00..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Va exista tort sau un moment festiv? La ce oră? <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Moment festiv petrecere" placeholder="Ex: 23:30 / 00:00 / nu este cazul" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști petrecere" aria-label="Artiști petrecere" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">O să fie momente artistice? Ce momente? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Momente artistice petrecere" aria-label="Momente artistice petrecere" required
+                placeholder="Ex: dansatori, saxofon, moment live, moment surpriză, video etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise petrecere" aria-label="Stiluri muzicale interzise petrecere" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile petrecere" aria-label="Melodii interzise sau sensibile petrecere" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party petrecere" aria-label="Atmosferă elegantă sau party petrecere" required
+              placeholder="Descrieți vibe-ul dorit pentru petrecerea privată..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este genul de petrecere pe care îl preferați? <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="field-select" name="Gen petrecere preferat petrecere" aria-label="Gen petrecere preferat petrecere" required>
+                <option value="" disabled selected>Selectează genul de petrecere</option>
+                <option value="Elegantă">✨ Elegantă</option>
+                <option value="Tradițională">🎻 Tradițională</option>
+                <option value="Modernă">🚀 Modernă</option>
+                <option value="Festival vibe">🎪 Festival vibe</option>
+                <option value="Clubbing">🎧 Clubbing</option>
+                <option value="Mixtă">🔥 Mixtă</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Aveți mulți invitați care dansează muzică populară / tradițională? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Invitați dansează populară petrecere" aria-label="Invitați dansează populară petrecere" required
+                placeholder="Ex: Da, mulți / Puțini / Nu prea..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți hore / sârbe / tradiționale într-un anumit interval al serii? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Interval hore sârbe tradiționale petrecere" aria-label="Interval hore sârbe tradiționale petrecere" required
+                placeholder="Ex: după primul fel, după tort, mai spre final etc."></textarea>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi petrecere" aria-label="Invitați alte țări culturi petrecere" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre petrecerea voastră după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații petrecere" required aria-label="Cum să descrie invitații petrecere"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă petrecere" required aria-label="Cel mai important lucru atmosferă petrecere"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită petrecere" required aria-label="Petrecere reușită petrecere"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută petrecere" required aria-label="Petreceri atmosferă plăcută petrecere"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută petrecere" required aria-label="Petreceri atmosferă neplăcută petrecere"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere petrecere" aria-label="Stres petrecere petrecere" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple petrecere" aria-label="Ce nu vreți să se întâmple petrecere" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4petrecere">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4petrecere">
+            <div class="gdpr-box"></div>
+            <p class="gdpr-text">
+              Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea muzicală și logistică a
+              evenimentului meu de către echipa <strong>TramEvents</strong>.
+              <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+
+
+        <div class="step-panel" id="panel-4-corporate">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Corporate</em></h2>
+            <p class="panel-desc">Detalii pentru un eveniment corporate echilibrat, elegant și potrivit participanților.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă corporate</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum este structurat programul de servire / catering? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Program servire corporate" aria-label="Program servire corporate" required
+              placeholder="Ex: aperitiv ora 18:30, fel principal ora 21:00, moment special ora 00:00..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Există un moment festiv, premiere, speech sau desert? La ce oră? <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Moment festiv corporate" placeholder="Ex: 23:30 / 00:00 / nu este cazul" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști corporate" aria-label="Artiști corporate" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">O să fie momente artistice? Ce momente? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Momente artistice corporate" aria-label="Momente artistice corporate" required
+                placeholder="Ex: dansatori, saxofon, moment live, moment surpriză, video etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise corporate" aria-label="Stiluri muzicale interzise corporate" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile corporate" aria-label="Melodii interzise sau sensibile corporate" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party corporate" aria-label="Atmosferă elegantă sau party corporate" required
+              placeholder="Descrieți vibe-ul dorit pentru evenimentul corporate..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este genul de petrecere pe care îl preferați? <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="field-select" name="Gen petrecere preferat corporate" aria-label="Gen petrecere preferat corporate" required>
+                <option value="" disabled selected>Selectează genul de petrecere</option>
+                <option value="Elegantă">✨ Elegantă</option>
+                <option value="Tradițională">🎻 Tradițională</option>
+                <option value="Modernă">🚀 Modernă</option>
+                <option value="Festival vibe">🎪 Festival vibe</option>
+                <option value="Clubbing">🎧 Clubbing</option>
+                <option value="Mixtă">🔥 Mixtă</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi corporate" aria-label="Invitați alte țări culturi corporate" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre evenimentul corporate după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații corporate" required aria-label="Cum să descrie invitații corporate"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă corporate" required aria-label="Cel mai important lucru atmosferă corporate"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită corporate" required aria-label="Petrecere reușită corporate"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută corporate" required aria-label="Petreceri atmosferă plăcută corporate"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută corporate" required aria-label="Petreceri atmosferă neplăcută corporate"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere corporate" aria-label="Stres petrecere corporate" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple corporate" aria-label="Ce nu vreți să se întâmple corporate" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4corporate">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4corporate">
+            <div class="gdpr-box"></div>
+            <p class="gdpr-text">
+              Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea muzicală și logistică a
+              evenimentului meu de către echipa <strong>TramEvents</strong>.
+              <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+
+
+        <div class="step-panel" id="panel-4-cununie">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Cununie</em></h2>
+            <p class="panel-desc">Detalii pentru o cununie cu atmosferă potrivită invitaților și momentelor importante.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă cununie</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Câte feluri de mâncare vor fi și la ce ore aproximative se servesc? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Program servire cununie" aria-label="Program servire cununie" required
+              placeholder="Ex: aperitiv ora 18:30, fel principal ora 21:00, moment special ora 00:00..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">La ce oră va fi momentul tortului / desertului? <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Moment festiv cununie" placeholder="Ex: 23:30 / 00:00 / nu este cazul" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști cununie" aria-label="Artiști cununie" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">O să fie momente artistice? Ce momente? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Momente artistice cununie" aria-label="Momente artistice cununie" required
+                placeholder="Ex: dansatori, saxofon, moment live, moment surpriză, video etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise cununie" aria-label="Stiluri muzicale interzise cununie" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile cununie" aria-label="Melodii interzise sau sensibile cununie" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party cununie" aria-label="Atmosferă elegantă sau party cununie" required
+              placeholder="Descrieți vibe-ul dorit pentru cununie..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este genul de petrecere pe care îl preferați? <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="field-select" name="Gen petrecere preferat cununie" aria-label="Gen petrecere preferat cununie" required>
+                <option value="" disabled selected>Selectează genul de petrecere</option>
+                <option value="Elegantă">✨ Elegantă</option>
+                <option value="Tradițională">🎻 Tradițională</option>
+                <option value="Modernă">🚀 Modernă</option>
+                <option value="Festival vibe">🎪 Festival vibe</option>
+                <option value="Clubbing">🎧 Clubbing</option>
+                <option value="Mixtă">🔥 Mixtă</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Aveți mulți invitați care dansează muzică populară / tradițională? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Invitați dansează populară cununie" aria-label="Invitați dansează populară cununie" required
+                placeholder="Ex: Da, mulți / Puțini / Nu prea..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți hore / sârbe / tradiționale într-un anumit interval al serii? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Interval hore sârbe tradiționale cununie" aria-label="Interval hore sârbe tradiționale cununie" required
+                placeholder="Ex: după primul fel, după tort, mai spre final etc."></textarea>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi cununie" aria-label="Invitați alte țări culturi cununie" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre cununia voastră după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații cununie" required aria-label="Cum să descrie invitații cununie"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă cununie" required aria-label="Cel mai important lucru atmosferă cununie"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită cununie" required aria-label="Petrecere reușită cununie"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută cununie" required aria-label="Petreceri atmosferă plăcută cununie"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută cununie" required aria-label="Petreceri atmosferă neplăcută cununie"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere cununie" aria-label="Stres petrecere cununie" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple cununie" aria-label="Ce nu vreți să se întâmple cununie" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4cununie">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4cununie">
+            <div class="gdpr-box"></div>
+            <p class="gdpr-text">
+              Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea muzicală și logistică a
+              evenimentului meu de către echipa <strong>TramEvents</strong>.
+              <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+
+
+        <div class="step-panel" id="panel-4-alt">
+          <div class="panel-header">
+            <h2 class="panel-title">Detalii <em>Alt tip</em></h2>
+            <p class="panel-desc">Detalii suplimentare pentru personalizarea evenimentului.</p>
+          </div>
+          <div class="panel-divider"></div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Program &amp; atmosferă alt tip</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum este structurat programul de servire? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Program servire alt" aria-label="Program servire alt" required
+              placeholder="Ex: aperitiv ora 18:30, fel principal ora 21:00, moment special ora 00:00..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Există tort sau moment festiv? La ce oră? <span class="req">*</span></label>
+            <input type="text" class="field-input" name="Moment festiv alt" placeholder="Ex: 23:30 / 00:00 / nu este cazul" required>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">O să cânte artiști? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Artiști alt" aria-label="Artiști alt" required
+                placeholder="Ex: Nu / Da - nume artist, formație, DJ invitat etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">O să fie momente artistice? Ce momente? Cine? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Momente artistice alt" aria-label="Momente artistice alt" required
+                placeholder="Ex: dansatori, saxofon, moment live, moment surpriză, video etc."></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Ce evităm</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce stiluri muzicale NU doriți să se audă deloc? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stiluri muzicale interzise alt" aria-label="Stiluri muzicale interzise alt" required
+                placeholder="Ex: trap agresiv, muzică foarte tristă, dedicații excesive etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Există melodii pe care le considerați „interzise” sau care au o semnificație negativă? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Melodii interzise sau sensibile alt" aria-label="Melodii interzise sau sensibile alt" required
+                placeholder="Ex: o melodie asociată cu o persoană dragă, o fostă relație sau un moment sensibil"></textarea>
+            </div>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Vibe &amp; atmosferă</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Doriți o atmosferă mai elegantă și rafinată sau una energică și de club / party? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Atmosferă elegantă sau party alt" aria-label="Atmosferă elegantă sau party alt" required
+              placeholder="Descrieți vibe-ul dorit pentru eveniment..."></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este genul de petrecere pe care îl preferați? <span class="req">*</span></label>
+            <div class="select-wrap">
+              <select class="field-select" name="Gen petrecere preferat alt" aria-label="Gen petrecere preferat alt" required>
+                <option value="" disabled selected>Selectează genul de petrecere</option>
+                <option value="Elegantă">✨ Elegantă</option>
+                <option value="Tradițională">🎻 Tradițională</option>
+                <option value="Modernă">🚀 Modernă</option>
+                <option value="Festival vibe">🎪 Festival vibe</option>
+                <option value="Clubbing">🎧 Clubbing</option>
+                <option value="Mixtă">🔥 Mixtă</option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Aveți mulți invitați care dansează muzică populară / tradițională? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Invitați dansează populară alt" aria-label="Invitați dansează populară alt" required
+                placeholder="Ex: Da, mulți / Puțini / Nu prea..."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Doriți hore / sârbe / tradiționale într-un anumit interval al serii? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Interval hore sârbe tradiționale alt" aria-label="Interval hore sârbe tradiționale alt" required
+                placeholder="Ex: după primul fel, după tort, mai spre final etc."></textarea>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Aveți invitați din alte țări sau culturi pentru care ar trebui incluse anumite stiluri muzicale? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Invitați alte țări culturi alt" aria-label="Invitați alte țări culturi alt" required
+              placeholder="Ex: invitați din Ungaria, Germania, Italia etc."></textarea>
+          </div>
+
+          <div class="section-divider">
+            <div class="section-divider-line"></div>
+            <div class="section-divider-label">Așteptări &amp; emoții</div>
+            <div class="section-divider-line"></div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Cum v-ați dori să vorbească invitații despre evenimentul vostru după eveniment? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cum să descrie invitații alt" required aria-label="Cum să descrie invitații alt"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Care este cel mai important lucru pentru voi legat de atmosferă? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Cel mai important lucru atmosferă alt" required aria-label="Cel mai important lucru atmosferă alt"></textarea>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label">Ce ar însemna pentru voi „o petrecere reușită”? <span class="req">*</span></label>
+            <textarea class="field-textarea" name="Petrecere reușită alt" required aria-label="Petrecere reușită alt"></textarea>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde v-a plăcut foarte mult atmosfera? Ce v-a plăcut? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă plăcută alt" required aria-label="Petreceri atmosferă plăcută alt"></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ați fost la petreceri unde NU v-a plăcut atmosfera? Ce a lipsit? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Petreceri atmosferă neplăcută alt" required aria-label="Petreceri atmosferă neplăcută alt"></textarea>
+            </div>
+          </div>
+
+          <div class="grid-2">
+            <div class="field-group">
+              <label class="field-label">Ce vă stresează cel mai mult legat de petrecere? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Stres petrecere alt" aria-label="Stres petrecere alt" required
+                placeholder="Ex: ring gol, probleme tehnice, atmosferă slabă, întârzieri etc."></textarea>
+            </div>
+
+            <div class="field-group">
+              <label class="field-label">Ce NU vreți să se întâmple sub nicio formă la petrecerea voastră? <span class="req">*</span></label>
+              <textarea class="field-textarea" name="Ce nu vreți să se întâmple alt" aria-label="Ce nu vreți să se întâmple alt" required
+                placeholder="Ex: invitați plictisiți, prea multe dedicații, atmosferă rece etc."></textarea>
+            </div>
+          </div>
+
+          <label class="gdpr-wrap" id="gdprLabel4alt">
+            <input type="checkbox" class="gdpr-hidden" name="Acord date" value="Da" id="gdprCheck4alt">
+            <div class="gdpr-box"></div>
+            <p class="gdpr-text">
+              Sunt de acord ca datele completate să fie utilizate exclusiv pentru organizarea muzicală și logistică a
+              evenimentului meu de către echipa <strong>TramEvents</strong>.
+              <span class="req">*</span>
+            </p>
+          </label>
+        </div>
+
+
+        <div class="nav-row">
+          <button type="button" class="btn-back btn-hidden" id="btnBack">← Înapoi</button>
+          <button type="button" class="btn-next" id="btnNext">Pasul următor →</button>
+          <button type="submit" class="btn-submit btn-hidden" id="btnSubmit">✦ Trimite formularul</button>
+        </div>
+      </form>
+
+      <div class="card-footer">© 2026 <span>TramEvents</span> &nbsp;·&nbsp; Experiențe muzicale memorabile</div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <div class="toast-icon">⚠</div>
+    <div class="toast-text" id="toastMsg">Eroare.</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

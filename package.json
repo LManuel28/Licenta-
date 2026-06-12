@@ -1,0 +1,23 @@
+{
+  "name": "licenta-tramevents-ci-cd",
+  "version": "1.0.0",
+  "description": "Pipeline CI/CD pentru testarea automată și verificarea securității – TramEvents Formular",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "lint:html": "htmlhint app/index.html",
+    "lint:js": "eslint app/script.js",
+    "lint": "npm run lint:html && npm run lint:js",
+    "serve": "npx serve app -p 8080",
+    "dev": "npm run serve"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "eslint": "^8.57.0",
+    "htmlhint": "^1.1.4",
+    "serve": "^14.2.3"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
