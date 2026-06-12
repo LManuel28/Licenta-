@@ -229,8 +229,16 @@ test("formularul pentru Majorat poate fi completat corect până la pasul 3", as
   await expect(page.locator("#panel-2")).toBeVisible({ timeout: 3000 });
   await expect(page.locator("#dot-2")).toHaveClass(/active/, { timeout: 3000 });
 
-  // Verificam ca data si ora exista in pasul 2
+  // Verificam ca data eveniment exista si e vizibila in pasul 2
   await expect(page.locator("#eventDate")).toBeVisible({ timeout: 5000 });
+
+  // Completam data ca sa apara Ora (logica progresiva)
+  const futureDate = new Date();
+  futureDate.setFullYear(futureDate.getFullYear() + 1);
+  await page.fill("#eventDate", futureDate.toISOString().split("T")[0]);
+  await page.waitForTimeout(400);
+
+  // Ora apare dupa completarea datei
   await expect(page.locator('input[name="Ora începerii"]')).toBeVisible({
     timeout: 5000,
   });
