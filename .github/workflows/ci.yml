@@ -1,19 +1,15 @@
-name: CI/CD – TramEvents Formular
+name: CI/CD - TramEvents Formular
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-  # ────────────────────────────────────────────────────────────────
-  # JOB 1: Linting — HTMLHint + ESLint
-  # ────────────────────────────────────────────────────────────────
   lint:
-    name: "🔍 Linting (HTMLHint + ESLint)"
+    name: "Linting (HTMLHint + ESLint)"
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout cod
         uses: actions/checkout@v4
@@ -21,28 +17,22 @@ jobs:
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
-      - name: Instalare dependențe
+      - name: Instalare dependente
         run: npm install
 
-      - name: HTMLHint – verificare HTML
+      - name: HTMLHint - verificare HTML
         run: npx htmlhint app/index.html --config .htmlhintrc
-        continue-on-error: false
 
-      - name: ESLint – verificare JavaScript
+      - name: ESLint - verificare JavaScript
         run: npx eslint app/script.js --max-warnings=20
-        continue-on-error: false
 
-  # ────────────────────────────────────────────────────────────────
-  # JOB 2: Teste Playwright în browser
-  # ────────────────────────────────────────────────────────────────
   test:
-    name: "🧪 Teste Playwright (Chromium + Firefox)"
+    name: "Teste Playwright (Chromium + Firefox)"
     runs-on: ubuntu-latest
     needs: lint
-
     steps:
       - name: Checkout cod
         uses: actions/checkout@v4
@@ -50,10 +40,10 @@ jobs:
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: "20"
+          cache: "npm"
 
-      - name: Instalare dependențe Node
+      - name: Instalare dependente Node
         run: npm install
 
       - name: Instalare browsere Playwright
@@ -64,7 +54,7 @@ jobs:
         env:
           CI: true
 
-      - name: Salvare raport teste (artifact)
+      - name: Salvare raport teste
         uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -74,13 +64,9 @@ jobs:
             test-results/
           retention-days: 14
 
-  # ────────────────────────────────────────────────────────────────
-  # JOB 3: Scanare secrete cu Gitleaks
-  # ────────────────────────────────────────────────────────────────
-gitleaks:
-    name: "🔐 Scanare secrete (Gitleaks)"
+  gitleaks:
+    name: "Scanare secrete (Gitleaks)"
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout cod
         uses: actions/checkout@v4
@@ -93,14 +79,10 @@ gitleaks:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: true
 
-  # ────────────────────────────────────────────────────────────────
-  # JOB 4: Build Docker + Scanare Trivy
-  # ────────────────────────────────────────────────────────────────
   docker-security:
-    name: "🐳 Docker Build + Trivy Scan"
+    name: "Docker Build + Trivy Scan"
     runs-on: ubuntu-latest
     needs: test
-
     steps:
       - name: Checkout cod
         uses: actions/checkout@v4
@@ -117,12 +99,11 @@ gitleaks:
         run: |
           sudo apt-get install -y wget apt-transport-https gnupg lsb-release
           wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
-          echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | \
-            sudo tee /etc/apt/sources.list.d/trivy.list
+          echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/trivy.list
           sudo apt-get update
           sudo apt-get install -y trivy
 
-      - name: Trivy – scanare vulnerabilități imagine Docker
+      - name: Trivy - scanare vulnerabilitati
         run: |
           trivy image \
             --exit-code 0 \
@@ -131,7 +112,7 @@ gitleaks:
             --format table \
             tramevents-formular:latest
 
-      - name: Trivy – raport SARIF (pentru GitHub Security tab)
+      - name: Trivy - raport SARIF
         run: |
           trivy image \
             --exit-code 0 \
@@ -145,7 +126,7 @@ gitleaks:
         with:
           sarif_file: trivy-results.sarif
 
-      - name: Trivy – scanare CRITICĂ (eșuează pipeline dacă există CVE critice)
+      - name: Trivy - scanare CRITICA
         run: |
           trivy image \
             --exit-code 1 \
@@ -154,35 +135,29 @@ gitleaks:
             tramevents-formular:latest
         continue-on-error: true
 
-      - name: Salvare imagine Docker (artifact)
+      - name: Salvare imagine Docker
         run: docker save tramevents-formular:latest | gzip > tramevents-formular.tar.gz
 
-      - name: Upload imagine Docker ca artifact
+      - name: Upload imagine Docker
         uses: actions/upload-artifact@v4
         with:
           name: docker-image
           path: tramevents-formular.tar.gz
           retention-days: 7
 
-  # ────────────────────────────────────────────────────────────────
-  # JOB 5: Summary final
-  # ────────────────────────────────────────────────────────────────
   summary:
-    name: "✅ Pipeline Summary"
+    name: "Pipeline Summary"
     runs-on: ubuntu-latest
     needs: [lint, test, gitleaks, docker-security]
     if: always()
-
     steps:
-      - name: Afișare status pipeline
+      - name: Afisare status pipeline
         run: |
-          echo "## 📊 Rezultate Pipeline CI/CD – TramEvents" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Rezultate Pipeline CI/CD - TramEvents" >> $GITHUB_STEP_SUMMARY
           echo "| Job | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|-----|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| 🔍 Linting | ${{ needs.lint.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🧪 Teste Playwright | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🔐 Gitleaks | ${{ needs.gitleaks.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| 🐳 Docker + Trivy | ${{ needs.docker-security.result }} |" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "Commit: \`${{ github.sha }}\` | Branch: \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "| Linting | ${{ needs.lint.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Teste Playwright | ${{ needs.test.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Gitleaks | ${{ needs.gitleaks.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Docker + Trivy | ${{ needs.docker-security.result }} |" >> $GITHUB_STEP_SUMMARY
+          echo "Commit: ${{ github.sha }} | Branch: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
