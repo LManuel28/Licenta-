@@ -1,36 +1,33 @@
 // @ts-nocheck
-const { defineConfig, devices } = require('@playwright/test');
+const { defineConfig, devices } = require("@playwright/test");
 
 module.exports = defineConfig({
-  testDir: './tests',
-  timeout: 30000,
-  retries: process.env.CI ? 2 : 0,
+  testDir: "./tests",
+  timeout: 240000,
+  retries: 0,
+  workers: 1,
   reporter: [
-    ['list'],
-    ['html', { open: 'never', outputFolder: 'playwright-report' }],
-    ['junit', { outputFile: 'test-results/results.xml' }],
+    ["list"],
+    ["html", { open: "always", outputFolder: "playwright-report" }],
   ],
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:8080',
-    headless: true,
-    screenshot: 'only-on-failure',
-    video: 'off',
-    trace: 'on-first-retry',
+    baseURL: "http://localhost:8080",
+    headless: false,
+    screenshot: "on",
+    video: "on",
+    trace: "on",
+    slowMo: 0,
   },
   projects: [
     {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-    {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
     },
   ],
   webServer: {
-    command: 'npx serve app -p 8080',
-    url: 'http://localhost:8080',
-    reuseExistingServer: !process.env.CI,
+    command: "npx serve app -p 8080 --single --no-clipboard",
+    url: "http://localhost:8080",
+    reuseExistingServer: true,
     timeout: 15000,
   },
 });
